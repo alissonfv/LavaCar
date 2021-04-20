@@ -1,0 +1,32 @@
+.form{
+    background-color: rgb(53, 48, 48);
+    text-align: center;
+    color:whitesmoke;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 0%;
+    margin-top: -1.8%;
+    margin-bottom: -1.8%;
+    padding: 1.8%;
+}
+.btnSubmit{
+    background-color: #65abfa; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin:2%;
+}
+.btnReset{
+    background-color: #f51717; /* Green */
+    border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin:2%;
+}

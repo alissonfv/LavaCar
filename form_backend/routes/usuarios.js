@@ -2,13 +2,16 @@ const router = require('express').Router();
 const { check, body, validationResult } = require('express-validator');
 
 router.post('/', [
-    check('nome', 'Nome Completo é um campo obrigatório.').trim().escape().notEmpty(),
-    check('telefone', ' O total de digitos deve ser igual a 11').trim().escape().optional().isInt({min: 10000000000, max:99999999999}).toInt(),
-    check('whats', 'Este é o número do seu WhatsApp.').trim().escape().optional().toBoolean().custom(value => value)],
+    check('nome', 'Nome Completo é um campo obrigatório.').trim().escape().notEmpty().isLength({min:5}),
+    check('telefone', ' O total de digitos deve ser igual a 11').trim().escape().isString().optional().isLength({min: 10, max:20}),
+    check('whats',).trim().escape().optional().toBoolean(),
     check('marca').trim().escape(),
     check('modelo').trim().escape(),
-    check('ano').trim().escape().toInt,
-    check('comentarios').trim().escape(),
+    check('anoCarro').trim().escape().toInt(),
+    check('dia', 'Este dia não é valido').trim().escape().toInt().isInt({max:31}),
+    check('mes', 'Este mes não é valido').trim().escape().toInt().isInt({max:12}),
+    check('ano').trim().escape().toInt().isInt({min:2021}),
+    check('comentarios').trim().escape()],
     (req, res) => {
         const erros = validationResult(req);
         const usuario = req.body;
