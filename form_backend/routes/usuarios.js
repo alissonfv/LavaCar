@@ -8,6 +8,8 @@ router.post('/', [
     check('marca').trim().escape(),
     check('modelo').trim().escape(),
     check('anoCarro').trim().escape().toInt(),
+    check('placa').trim().escape(),
+    check('dataAgendamento').trim().escape(),
     check('dia', 'Este dia não é valido').trim().escape().toInt().isInt({max:31}),
     check('mes', 'Este mes não é valido').trim().escape().toInt().isInt({max:12}),
     check('ano').trim().escape().toInt().isInt({min:2021}),

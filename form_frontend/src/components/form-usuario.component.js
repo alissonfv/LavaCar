@@ -18,6 +18,8 @@ export default class FormUsuario extends Component {
             dia: '',
             mes: '',
             ano: '',
+            placa: '',
+            dataAgendamento: '',
             comentarios: '',
             contexto: {}
         } // fim de this.baseState
@@ -33,6 +35,8 @@ export default class FormUsuario extends Component {
         this.onChangeDia = this.onChangeDia.bind(this);
         this.onChangeMes = this.onChangeMes.bind(this);
         this.onChangeAno = this.onChangeAno.bind(this);
+        this.onChangePlaca = this.onChangePlaca.bind(this);
+        this.onChangeDataAgendamento = this.onChangeDataAgendamento.bind(this);
         this.onChangeComentarios = this.onChangeComentarios.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onReset = this.onReset.bind(this);
@@ -61,11 +65,17 @@ export default class FormUsuario extends Component {
     onChangeDia(e) {
         this.setState({ dia: e.target.value })
     }   
+    onChangeDataAgendamento(e) {
+        this.setState({ dataAgendamento: e.target.value })
+    }  
     onChangeMes(e) {
         this.setState({ mes: e.target.value })
     }
     onChangeAno(e) {
         this.setState({ ano: e.target.value })
+    }
+    onChangePlaca(e) {
+        this.setState({ placa: e.target.value })
     }
     onChangeComentarios(e) {
         this.setState({ comentarios: e.target.value })
@@ -88,6 +98,8 @@ export default class FormUsuario extends Component {
             dia: this.state.dia,
             mes: this.state.mes,
             ano: this.state.ano,
+            placa: this.state.placa,
+            dataAgendamento: this.state.dataAgendamento,
             comentarios: this.state.comentarios,
         }; // fim do const usuario
 
@@ -115,9 +127,9 @@ export default class FormUsuario extends Component {
                 (<li key='2'>
                     <b>Telefone:</b> {contexto.usuario.telefone}
                 </li>),
-                /*(<li key='3'>
+                (<li key='6'>
                     <b>WhatsApp:</b> {contexto.usuario.whats}
-                </li>),*/
+                </li>),
                 (<li key='3'>
                     <b>Modelo:</b> {contexto.usuario.modelo}
                 </li>),
@@ -127,6 +139,9 @@ export default class FormUsuario extends Component {
                 (<li key='5'>
                     <b>Ano do Carro:</b> {contexto.usuario.anoCarro}
                 </li>),
+                (<li key='9'>
+                <b>Placa:</b> {contexto.usuario.placa}
+            </li>),
                 /*
                 (<li key='7'>
                     <b>Dia do Agendamento:</b> {contexto.usuario.dia}
@@ -138,8 +153,8 @@ export default class FormUsuario extends Component {
                     <b>Ano do Agendamento:</b> {contexto.usuario.ano}
                 </li>),*/
                 (<li key='7'>
-                <b>data Agendamento do Agendamento: </b> {(contexto.usuario.dia  +'/' + contexto.usuario.mes + '/' + contexto.usuario.ano)}
-            </li>),
+                    <b>data : </b> {contexto.dataAgendamento}
+                </li>),
                 (<li key='8'>
                     <b>Comentários:</b> {contexto.usuario.comentarios}
                 </li>),
@@ -156,9 +171,7 @@ export default class FormUsuario extends Component {
                         <input  type="text" value={this.state.nome}
                             onChange={this.onChangeNome} /><br />
                         Telefone: <br />
-
-                        
-                        <MaskedInput mask={['(', /[1-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]} type="text" value={this.state.telefone}
+                        <MaskedInput mask={['(', /[1-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]} type="text" value={this.state.telefone}
                             onChange={this.onChangeTelefone} />
                           &nbsp;&nbsp;&nbsp;WhatsApp: 
                         <input type="checkbox" value={this.state.whats}
@@ -178,9 +191,13 @@ export default class FormUsuario extends Component {
                         Mes de Agendamento: <br/>
                         <input type="int" value={this.state.mes}
                             onChange={this.onChangeMes} /><br />    
-                        Ano de Agendamento: <br/>
-                        <input type="int" value={this.state.ano}
-                            onChange={this.onChangeAno} /><br />
+                        
+                        Placa: <br/>
+                        <input type="int" value={this.state.placa}
+                            onChange={this.onChangePlaca} /><br />
+                            DATA de Agendamento: <br/>
+                        <input type="text" value={this.state.dataAgendamento}
+                            onChange={this.onChangeDataAgendamento} /><br />
                         Comentários:<br />
                         <textarea value={this.state.comentarios}
                             onChange={this.onChangeComentarios}
