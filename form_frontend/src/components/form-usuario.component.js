@@ -3,6 +3,7 @@ import axios from 'axios';
 import './style.css';
 import MaskedInput from 'react-text-mask';
 
+
 export default class FormUsuario extends Component {
     constructor(props) {
         super(props);
@@ -19,7 +20,8 @@ export default class FormUsuario extends Component {
             mes: '',
             ano: '',
             placa: '',
-            dataAgendamento: '',
+            data: '',
+            hora: '',
             comentarios: '',
             contexto: {}
         } // fim de this.baseState
@@ -36,7 +38,8 @@ export default class FormUsuario extends Component {
         this.onChangeMes = this.onChangeMes.bind(this);
         this.onChangeAno = this.onChangeAno.bind(this);
         this.onChangePlaca = this.onChangePlaca.bind(this);
-        this.onChangeDataAgendamento = this.onChangeDataAgendamento.bind(this);
+        this.onChangeData = this.onChangeData.bind(this);
+        this.onChangeHora = this.onChangeHora.bind(this);
         this.onChangeComentarios = this.onChangeComentarios.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onReset = this.onReset.bind(this);
@@ -65,8 +68,11 @@ export default class FormUsuario extends Component {
     onChangeDia(e) {
         this.setState({ dia: e.target.value })
     }   
-    onChangeDataAgendamento(e) {
-        this.setState({ dataAgendamento: e.target.value })
+    onChangeData(e) {
+        this.setState({ data: e.target.value })
+    }  
+    onChangeHora(e) {
+        this.setState({ hora: e.target.value })
     }  
     onChangeMes(e) {
         this.setState({ mes: e.target.value })
@@ -99,7 +105,8 @@ export default class FormUsuario extends Component {
             mes: this.state.mes,
             ano: this.state.ano,
             placa: this.state.placa,
-            dataAgendamento: this.state.dataAgendamento,
+            data: this.state.data,
+            hora: this.state.hora,
             comentarios: this.state.comentarios,
         }; // fim do const usuario
 
@@ -139,23 +146,28 @@ export default class FormUsuario extends Component {
                 (<li key='5'>
                     <b>Ano do Carro:</b> {contexto.usuario.anoCarro}
                 </li>),
-                (<li key='9'>
-                <b>Placa:</b> {contexto.usuario.placa}
-            </li>),
-                /*
+                (<li key='6'>
+                    <b>Placa:</b> {contexto.usuario.placa}
+                </li>),
                 (<li key='7'>
-                    <b>Dia do Agendamento:</b> {contexto.usuario.dia}
+                    <b>Agendamento:</b> {contexto.usuario.data}
+                </li>),
+                 (<li key='8'>
+                    <b>Hora Marcada:</b> {contexto.usuario.hora}
+                 </li>),
+               /* 
+                (<li key='7'>
+                    <b>Dia do data:</b> {contexto.usuario.dia}
                 </li>),
                 (<li key='8'>
-                    <b>Mes do Agendamento:</b> {contexto.usuario.mes}
+                    <b>Mes do data:</b> {contexto.usuario.mes}
                 </li>),
                 (<li key='9'>
-                    <b>Ano do Agendamento:</b> {contexto.usuario.ano}
-                </li>),*/
-                (<li key='7'>
-                    <b>data : </b> {contexto.dataAgendamento}
+                    <b>Ano do data:</b> {contexto.usuario.ano}
                 </li>),
-                (<li key='8'>
+                
+                */
+                (<li key='9'>
                     <b>Comentários:</b> {contexto.usuario.comentarios}
                 </li>),
             ]
@@ -172,10 +184,10 @@ export default class FormUsuario extends Component {
                             onChange={this.onChangeNome} /><br />
                         Telefone: <br />
                         <MaskedInput mask={['(', /[1-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]} type="text" value={this.state.telefone}
-                            onChange={this.onChangeTelefone} />
-                          &nbsp;&nbsp;&nbsp;WhatsApp: 
+                            onChange={this.onChangeTelefone} /> <br />
+                        WhatsApp: 
                         <input type="checkbox" value={this.state.whats}
-                            onChange={this.onChangeWhats} /><br />
+                            onChange={this.onChangeWhats} /><br /><br />
                         Modelo: *<br />
                         <input type="text" value={this.state.modelo}
                             onChange={this.onChangeModelo} /><br />
@@ -185,19 +197,15 @@ export default class FormUsuario extends Component {
                         Ano do Carro:<br />
                         <input type="int" value={this.state.anoCarro}
                             onChange={this.onChangeAnoCarro} /><br />
-                        Dia de Agendamento: <br/>
-                        <input type="int" value={this.state.dia}
-                            onChange={this.onChangeDia} /><br />
-                        Mes de Agendamento: <br/>
-                        <input type="int" value={this.state.mes}
-                            onChange={this.onChangeMes} /><br />    
-                        
                         Placa: <br/>
-                        <input type="int" value={this.state.placa}
+                        <input className="placa" type="int" value={this.state.placa}
                             onChange={this.onChangePlaca} /><br />
-                            DATA de Agendamento: <br/>
-                        <input type="text" value={this.state.dataAgendamento}
-                            onChange={this.onChangeDataAgendamento} /><br />
+                            Agendamento: <br/>
+                        <MaskedInput mask={[ /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]} type="text" value={this.state.data}
+                            onChange={this.onChangeData} /> <br />
+                        Hora Marcada: <br/>
+                        <MaskedInput mask={[ /\d/, /\d/, ':', /\d/, /\d/]} type="text" value={this.state.hora}
+                            onChange={this.onChangeHora} /> <br />
                         Comentários:<br />
                         <textarea value={this.state.comentarios}
                             onChange={this.onChangeComentarios}
