@@ -201,8 +201,10 @@ export default class FormUsuario extends Component {
                         <input className="placa" type="int" value={this.state.placa}
                             onChange={this.onChangePlaca} /><br />
                             Agendamento: <br/>
-                        <MaskedInput mask={[ /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]} type="text" value={this.state.data}
+                       <MaskedInput mask={[ /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/ ,/\d/, /\d/]} placeholder="MM-DD-AAAA" type="text" value={this.state.data}
                             onChange={this.onChangeData} /> <br />
+                         {/*<input placeholder="MM-DD/AAAA" type="text" value={this.state.data}
+                            onChange={this.onChangeData} /> <br />*/}
                         Hora Marcada: <br/>
                         <MaskedInput mask={[ /\d/, /\d/, ':', /\d/, /\d/]} type="text" value={this.state.hora}
                             onChange={this.onChangeHora} /> <br />
