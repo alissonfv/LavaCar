@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { check, body, validationResult } = require('express-validator');
-const ehDiaUtil = require('@lfreneda/eh-dia-util');
 
 router.post('/', [
     check('nome', 'Nome Completo é um campo obrigatório.').trim().escape().notEmpty().isLength({ min: 5 }),
@@ -9,7 +8,7 @@ router.post('/', [
     check('marca').trim().escape().optional(),
     check('modelo').trim().escape().optional(),
     check('anoCarro').trim().escape(),
-    check('placa', 'A placa do veiculo é um campo obrigatório').trim().escape().notEmpty(),
+    check('placa', 'A placa do veiculo é um campo obrigatório').trim().escape().notEmpty().isLength({min: 7, max: 7}).withMessage('A placa deve possuir 7 caracteres'),
     check('data', 'Data é campo obrigatório.').trim().escape().notEmpty().custom(value => {
         const data = new Date(value);
         const dataAtual = new Date(Date.now());
@@ -50,9 +49,6 @@ router.post('/', [
         }
         return false
     }).withMessage("A hora digitada é inválida, só temos horarios a cada 30 minutos"),
-    //check('dia', 'Este dia não é valido').trim().escape().toInt().isInt({max:31}),
-    // check('mes', 'Este mes não é valido').trim().escape().toInt().isInt({max:12}),
-    //check('ano').trim().escape().toInt().isInt({min:2021}),
     check('comentarios').trim().escape().optional()],
     (req, res) => {
         const erros = validationResult(req);
@@ -64,6 +60,7 @@ router.post('/', [
 
         if (!erros.isEmpty()) {
             return res.status(422).json(contexto);
+            res.sed(422, 'Erros')
         } else {
             return res.json(contexto);
         }
