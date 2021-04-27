@@ -1,7 +1,9 @@
-<h1>LavaCar Esponjão</h1>  Feito por: Alisson Fernando Vieira
+<h1>LavaCar Esponjão</h1> 
 
+Feito por: Alisson Fernando Vieira
+<hr>
 
-Esse projeto consiste em um cadastro de horários para um lava car.
+Nssse projeto foi realizado um pequeno programa de LavaCar, onde podemos gerar um ticket para guardar os dados digitados pelo usuario e reservar um horario para o mesmo lavar um carro.
 
 <h2>No back-end com o Node.js foi utilizado:</h2>
 
