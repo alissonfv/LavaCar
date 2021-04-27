@@ -20,7 +20,6 @@ Masked-input
 
 
 <h2> Para rodar o Projeto: </h2>
-
 Primeiro rode o comando:
 <br>sudo snap install node --channel=12/stable --classic
 
@@ -34,7 +33,7 @@ Entrar na pasta /form_frontend e rodar os comandos :
 
 <br> 1- npm install react-router-dom express-validator axios
 <br> 2- npm install react-input-masl --save
-<br> 3- npm install react-bootstrap bootstrap<br> 
+<br> 3- npm install react-bootstrap bootstrap
 <br> 4- yarn start
  
 Qualquer problema entre em contato :)
