@@ -24,12 +24,15 @@ Masked-input
 <h3>Rodar o back-end: </h3>
 Entrar na pasta /form_backend e rodar os comandos :
 
- 1- npm install
- 2- node server.js
+<br> 1- npm install
+<br> 2- node server.js
 <h3>Rodar o back-end: </h3>
 Entrar na pasta /form_frontend e rodar os comandos :
 
 
- 1- npm install
- 2- yarn start
+<br> 1- npm install
+<br> 2- yarn start
+<br> 3- npm install react-input-masl --save
+<br> 4- npm install react-bootstrap bootstrap
+ 
 Qualquer problema entre em contato com a gente
