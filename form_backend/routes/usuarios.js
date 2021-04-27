@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { check, body, validationResult } = require('express-validator');
 
 router.post('/', [
-    check('nome', 'Nome Completo é um campo obrigatório.').trim().escape().notEmpty().isLength({ min: 5 }),
+    check('nome', 'Nome Completo é um campo obrigatório.').trim().escape().notEmpty().isLength({ min: 5 }).withMessage('Deve ser o nome Completo'),
     check('telefone').trim().escape().optional(),
     check('whats',).trim().escape().optional().toBoolean().custom(value => value),
     check('marca').trim().escape().optional(),
@@ -53,16 +53,23 @@ router.post('/', [
     (req, res) => {
         const erros = validationResult(req);
         const usuario = req.body;
-        const contexto = {
+        const form = {
+            msg:"Concluido",
             usuario: usuario,
-            erros: erros.array()
         };
+        const ERRO={
+            msg:"Encontramos os seguintes erros: ",
+            erros: erros.array()
+
+        }
 
         if (!erros.isEmpty()) {
-            return res.status(422).json(contexto);
-            res.sed(422, 'Erros')
+            console.log(erros)
+            return res.status(422).json(ERRO);
+
         } else {
-            return res.json(contexto);
+            console.log(form)
+            return res.json(form);
         }
     });
 
