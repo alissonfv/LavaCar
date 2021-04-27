@@ -1,4 +1,6 @@
-<h1>LavaCar Esponjão</h1>
+<h1>LavaCar Esponjão</h1>  Feito por: Alisson Fernando Vieira
+
+
 Esse projeto consiste em um cadastro de horários para um lava car.
 
 <h2>No back-end com o Node.js foi utilizado:</h2>
