@@ -14,9 +14,9 @@ Nssse projeto foi realizado um pequeno programa de LavaCar, onde podemos gerar u
 
 <h2>No front-end com o React.js foi utilizado:</h2>
 
-react-bootstrap
-axios
-Masked-input
+<br>react-bootstrap
+<br>axios
+<br>Masked-input
 
 
 <h2> Para rodar o Projeto: </h2>
